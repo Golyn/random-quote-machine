@@ -1,6 +1,6 @@
 import { Button } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
-import { FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
