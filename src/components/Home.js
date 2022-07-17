@@ -1,6 +1,6 @@
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { FaTumblr, FaTwitter } from 'react-icons/fa';
+// import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 const Home = () => {
@@ -33,29 +33,24 @@ const Home = () => {
               - {quotes.author}
             </div>
           </div>
-          <div className="btn d-flex ">
+          <div className="btn d-flex justify-content-center">
             {' '}
             <Button className="me-2">
-              <Link
-                to={`twitter.com/intent/tweet`}
+              <a
+                href={`https://twitter.com/intent/tweet?text="${quotes.content}" ${quotes.author}&hashtags=quotes`}
                 target="_blank"
-                id="#tweet-quote"
-                className="text-white"
+                rel="noreferrer"
               >
-                <FaTwitter />
-              </Link>
+                <FaTwitter color="white" />
+              </a>
             </Button>
-            <Button>
-              <Link
-                to={'twitter.com/intent/tweet'}
-                target="_blank"
-                id="#tweet-quote"
-                className="text-white"
-              >
-                <FaTumblr />
-              </Link>
-            </Button>
-            <Button id="new-quote" className="ms-auto" onClick={getData}>
+            {/* <Button>
+              <a href={`https://facebook.com/sharer/sharer.php?text=`}>
+                <FaFacebook color="white" />
+              </a>
+            </Button> */}
+            {/* <Button id="new-quote" className="ms-auto" onClick={getData}> */}
+            <Button id="new-quote" onClick={getData}>
               New Quote
             </Button>
           </div>
