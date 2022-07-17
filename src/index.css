@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +13,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App {
+  background-color: rgb(15, 151, 67);
+  height: 100vh;
+}
+
+.card {
+  background-color: antiquewhite;
+  width: 50%;
+  height: 70%;
+  padding: 30px;
+  white-space: normal;
+}
+
+.social {
+  border-radius: 30px;
+  font-size: larger;
+  background-color: aliceblue;
 }
