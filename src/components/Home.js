@@ -27,7 +27,7 @@ const Home = () => {
         <div id="quote-box" className="text-center">
           <div className="quote-content mb-5">
             <div id="text" className="mb-5">
-              <h2>{quotes.content} </h2>
+              <h2>“{quotes.content}” </h2>
             </div>
             <div id="author" className="d-flex justify-content-end me-3 mb-5">
               - {quotes.author}
@@ -37,7 +37,7 @@ const Home = () => {
             {' '}
             <Button className="me-2">
               <a
-                href={`https://twitter.com/intent/tweet?text="${quotes.content}" ${quotes.author}&hashtags=quotes`}
+                href={`https://twitter.com/intent/tweet?text=“${quotes.content}” ${quotes.author}&hashtags=quotes`}
                 target="_blank"
                 rel="noreferrer"
               >
