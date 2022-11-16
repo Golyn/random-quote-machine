@@ -88,7 +88,6 @@ const Home = () => {
                   borderRadius: '4px',
                 }}
                 onClick={handleClick}
-                // onMouseOver={}
               >
                 New Quote
               </button>
