@@ -12,17 +12,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* #c0d8d8; */
+
 .App {
   background-color: #111827;
-  /* #cacdcc; */
   height: 100vh;
-}
-
-.card {
-  background-color: antiquewhite;
-  width: 50%;
-  height: 70%;
-  padding: 30px;
-  /* white-space: normal; */
 }

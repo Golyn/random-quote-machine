@@ -1,12 +1,14 @@
 // import { Button } from 'react-bootstrap';
 // import { Link } from 'react-router-dom';
-import { FaTwitter } from 'react-icons/fa';
+import { FaTwitter, FaQuoteLeft, FaTumblr } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import randomColor from 'randomcolor';
+import Card from 'react-bootstrap/Card';
+import { Button } from 'react-bootstrap';
 
 const Home = () => {
   const [quotes, setQuotes] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [bgColor, setColor] = useState('');
 
   // Fetch quote
@@ -14,8 +16,22 @@ const Home = () => {
     const response = await fetch('https://api.quotable.io/random');
     const data = await response.json();
     setQuotes(data);
-    setLoading(false);
+    // setLoading(false);
   };
+
+  // var colors = [
+  //   '#16a085',
+  //   '#27ae60',
+  //   '#2c3e50',
+  //   '#f39c12',
+  //   '#e74c3c',
+  //   '#9b59b6',
+  //   '#FB6964',
+  //   '#342224',
+  //   '#472E32',
+  //   '#BDBB99',
+  //   '#77B1A9',
+  //   '#73A857'];
 
   const changeColor = (e) => {
     let random = randomColor();
@@ -28,7 +44,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     getData();
   }, []);
 
@@ -39,62 +55,90 @@ const Home = () => {
         backgroundColor: bgColor,
       }}
     >
-      <div className="card d-flex align-items-center p-5 overflow-auto ">
-        {loading && <h2>Loading quote...</h2>}
-        {quotes && (
-          <div>
-            <div
-              id="quote-box"
-              className="text-center"
-              style={{
-                color: bgColor,
-              }}
-            >
-              <div className="quote-content mb-5">
-                <div id="text" className="mb-5">
-                  <h2>“{quotes.content}” </h2>
-                </div>
-                <div
-                  id="author"
-                  className="d-flex justify-content-end me-3 mb-5"
-                >
-                  - {quotes.author}
-                </div>
-              </div>
-            </div>
-            <div className="d-flex justify-content-between ">
-              <button
-                className="me-2 btn d-flex align-self-end"
+      <Card
+        className="p-5"
+        style={{
+          color: bgColor,
+          width: '45%',
+        }}
+      >
+        {/* {loading && <h2>Loading quote...</h2>} */}
+        {quotes ? (
+          <Card.Body>
+            <blockquote className="h3">
+              <p>
+                <FaQuoteLeft className="pe-2" />
+                {quotes.content}
+              </p>
+              <footer
+                className="blockquote-footer d-flex justify-content-end mt-5 display-5"
+                style={{
+                  color: bgColor,
+                }}
+              >
+                {quotes.author}
+              </footer>
+            </blockquote>
+            <div className="d-flex mt-4">
+              <Button
+                variant="primary"
                 style={{
                   backgroundColor: bgColor,
+                  border: 'none',
+                  outline: 'none',
+                  marginRight: '10px',
+                  boxShadow: 'none',
                 }}
               >
                 <a
-                  href={`https://twitter.com/intent/tweet?text=“${quotes.content}” ${quotes.author}&hashtags=quotes`}
+                  href={`https://twitter.com/intent/tweet?text=“${quotes.content}” ${quotes.author}&hashtags=quotes,freecodecamp`}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FaTwitter color="white" />
+                  <FaTwitter color="white" backgroundColor="black" />
                 </a>
-              </button>
-              <button
-                id="new-quote"
-                className="d-flex align-self-end"
+              </Button>
+              <Button
+                variant="primary"
+                className=""
                 style={{
                   backgroundColor: bgColor,
-                  padding: '4px 8px',
-                  color: 'white',
                   border: 'none',
-                  borderRadius: '4px',
+                  outline: 'none',
+                  boxShadow: 'none',
+                }}
+              >
+                <a
+                  href={`https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption= +
+                ${quotes.author} +
+                  &content= +
+                 ${quotes.content}+
+                  &canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button');`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FaTumblr color="white" backgroundColor="black" />
+                </a>
+              </Button>
+              <Button
+                variant="primary"
+                className="ms-auto"
+                style={{
+                  backgroundColor: bgColor,
+                  border: 'none',
+                  outline: 'none',
+                  boxShadow: 'none',
                 }}
                 onClick={handleClick}
               >
                 New Quote
-              </button>
+              </Button>
             </div>
-          </div>
+          </Card.Body>
+        ) : (
+          <h2>Loading quote...</h2>
         )}
-      </div>
+      </Card>
     </div>
   );
 };
