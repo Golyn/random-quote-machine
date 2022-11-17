@@ -2,7 +2,7 @@
 // import { Link } from 'react-router-dom';
 import { FaTwitter, FaQuoteLeft, FaTumblr } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
-// import randomColor from 'randomcolor';
+import randomColor from 'randomcolor';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 
@@ -19,25 +19,23 @@ const Home = () => {
     // setLoading(false);
   };
 
-  const colors = [
-    '#16a085',
-    '#27ae60',
-    '#2c3e50',
-    '#f39c12',
-    '#e74c3c',
-    '#9b59b6',
-    '#FB6964',
-    '#342224',
-    '#472E32',
-    '#BDBB99',
-    '#77B1A9',
-    '#73A857',
-  ];
+  // var colors = [
+  //   '#16a085',
+  //   '#27ae60',
+  //   '#2c3e50',
+  //   '#f39c12',
+  //   '#e74c3c',
+  //   '#9b59b6',
+  //   '#FB6964',
+  //   '#342224',
+  //   '#472E32',
+  //   '#BDBB99',
+  //   '#77B1A9',
+  //   '#73A857'];
 
   const changeColor = (e) => {
-    // let random = randomColor();
-    let randomIndex = Math.floor(Math.random() * colors.length);
-    setColor(colors[randomIndex]);
+    let random = randomColor();
+    setColor(random);
   };
 
   const handleClick = (e) => {
@@ -69,7 +67,7 @@ const Home = () => {
           <Card.Body>
             <blockquote className="h3">
               <p>
-                <FaQuoteLeft className="pe-2 pb-2 mb-2 " />
+                <FaQuoteLeft className="pe-2" />
                 {quotes.content}
               </p>
               <footer
